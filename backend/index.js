@@ -13,11 +13,7 @@ const weatherClient = axios.create({
 app.get("/forecast", async (req, res) => {
     
     const query = req.query.city 
-
-    console.log(`Requisição recebida para a cidade: ${query}`);
-
-    console.log(query)
-
+    
     const result = await weatherClient.get("/forecast", {
         params: {
             q:query,

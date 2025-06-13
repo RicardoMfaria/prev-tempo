@@ -1,6 +1,7 @@
 //rafce
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import striptags from 'striptags'
 import Exibir from './Exibir'
 
 const Busca = () => {
@@ -57,16 +58,16 @@ const Busca = () => {
           id = "cidade"
           type = "text"
           value = {cidade}
-          onChange={(e) => setCidade(e.target.value)}
+          onChange={(e) => setCidade(striptags(e.target.value))}
         />
       </div>
       <div>
         {
-          previsoes.map((previsoes, index) => (
+          previsoes.map((previsao, index) => (
             <Exibir 
               key={index} 
               cidade={cidade} 
-              dados={previsoes}/>
+              dados={previsao}/>
           ))
         }
       </div>
